@@ -1,0 +1,80 @@
+# Project exclude paths
+/.gradle/
+/Problems/Account/out/
+/Problems/Account/out/production/classes/
+/Problems/Adding values/out/
+/Problems/Adding values/out/production/classes/
+/Problems/Advanced calculator/out/
+/Problems/Advanced calculator/out/production/classes/
+/Problems/Area of a circle/out/
+/Problems/Area of a circle/out/production/classes/
+/Problems/Avoid NPE/out/
+/Problems/Avoid NPE/out/production/classes/
+/Problems/Bank account/out/
+/Problems/Bank account/out/production/classes/
+/Problems/Basic calculator/out/
+/Problems/Basic calculator/out/production/classes/
+/Problems/Binary search/out/
+/Problems/Binary search/out/production/classes/
+/Problems/Calculator with four methods/out/
+/Problems/Calculator with four methods/out/production/classes/
+/Problems/Celsius to Fahrenheit/out/
+/Problems/Celsius to Fahrenheit/out/production/classes/
+/Problems/Classes for Hospital/out/
+/Problems/Classes for Hospital/out/production/classes/
+/Problems/Complex/out/
+/Problems/Complex/out/production/classes/
+/Problems/Count the number of merge operations/out/
+/Problems/Count the number of merge operations/out/production/classes/
+/Problems/Creating list/out/
+/Problems/Creating list/out/production/classes/
+/Problems/Decompose a math function/out/
+/Problems/Decompose a math function/out/production/classes/
+/Problems/Distance/out/
+/Problems/Distance/out/production/classes/
+/Problems/Employees/out/
+/Problems/Employees/out/production/classes/
+/Problems/Find a value's index/out/
+/Problems/Find a value's index/out/production/classes/
+/Problems/Find mistake/out/
+/Problems/Find mistake/out/production/classes/
+/Problems/Find the nearest number/out/
+/Problems/Find the nearest number/out/production/classes/
+/Problems/Get first and last elements/out/
+/Problems/Get first and last elements/out/production/classes/
+/Problems/Getting input/out/
+/Problems/Getting input/out/production/classes/
+/Problems/Inverse boolean flags/out/
+/Problems/Inverse boolean flags/out/production/classes/
+/Problems/Merge all sequences/out/
+/Problems/Merge all sequences/out/production/classes/
+/Problems/Movie/out/
+/Problems/Movie/out/production/classes/
+/Problems/Only true or false/out/
+/Problems/Only true or false/out/production/classes/
+/Problems/Palindrome/out/
+/Problems/Palindrome/out/production/classes/
+/Problems/Parameters and their values/out/
+/Problems/Parameters and their values/out/production/classes/
+/Problems/Parse url/out/
+/Problems/Parse url/out/production/classes/
+/Problems/Phone/out/
+/Problems/Phone/out/production/classes/
+/Problems/Return empty string when argument is null/out/
+/Problems/Return empty string when argument is null/out/production/classes/
+/Problems/Safe converting/out/
+/Problems/Safe converting/out/production/classes/
+/Problems/Saying animals/out/
+/Problems/Saying animals/out/production/classes/
+/Problems/Sorting arrays/out/
+/Problems/Sorting arrays/out/production/classes/
+/Problems/The lucky ticket/out/
+/Problems/The lucky ticket/out/production/classes/
+/Problems/The number of inversions/out/
+/Problems/The number of inversions/out/production/classes/
+/Problems/Time/out/
+/Problems/Time/out/production/classes/
+/Sorting Tool/task/build/
+/Sorting Tool/task/out/
+/Sorting Tool/task/out/production/classes/
+/Sorting Tool/task/out/test/classes/

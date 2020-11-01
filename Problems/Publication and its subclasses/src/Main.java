@@ -1,5 +1,7 @@
 class Publication {
 
+
+
     private String title;
 
     public Publication(String title) {
@@ -7,15 +9,20 @@ class Publication {
     }
 
     public final String getInfo() {
-        // write your code here
+        return String.format("%s %s", getType(), getDetails());
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public String getType() {
-        return "Publication";
+        return "Publication:";
     }
 
     public String getDetails() {
-        return "";
+
+        return String.format("%s", getTitle());
     }
 
 }
@@ -29,7 +36,17 @@ class Newspaper extends Publication {
         this.source = source;
     }
 
-    // write your code here
+    @Override
+    public String getType() {
+        return "Newspaper";
+    }
+
+
+    @Override
+    public String getDetails() {
+
+        return String.format("(source - %s): %s", source, super.getTitle());
+    }
 
 }
 
@@ -42,7 +59,17 @@ class Article extends Publication {
         this.author = author;
     }
 
-    // write your code here
+    @Override
+    public String getType() {
+        return "Article";
+    }
+
+
+    @Override
+    public String getDetails() {
+
+        return String.format("(author - %s): %s", author, super.getTitle());
+    }
 
 }
 
@@ -55,6 +82,25 @@ class Announcement extends Publication {
         this.daysToExpire = daysToExpire;
     }
 
-    // write your code here
+    @Override
+    public String getType() {
+        return "Announcement";
+    }
+
+
+    @Override
+    public String getDetails() {
+
+        return String.format("(days to expire - %s): %s", daysToExpire, super.getTitle());
+    }
 
 }
+
+//class Main{
+//    public static void main(String[] args) {
+//        Newspaper n = new Newspaper("Football results", "Sport news");
+//        System.out.println(n.getType());
+//        System.out.println(n.getDetails());
+//        System.out.println(n.getInfo());
+//    }
+//}
