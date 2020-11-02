@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/Problems/Complex" />
             <option value="$PROJECT_DIR$/Problems/Correct the usage of non-generic class" />
             <option value="$PROJECT_DIR$/Problems/Count the number of merge operations" />
+            <option value="$PROJECT_DIR$/Problems/Creating a map" />
             <option value="$PROJECT_DIR$/Problems/Creating a set" />
             <option value="$PROJECT_DIR$/Problems/Creating list" />
             <option value="$PROJECT_DIR$/Problems/Decompose a math function" />
@@ -63,6 +64,7 @@
             <option value="$PROJECT_DIR$/Problems/The lucky ticket" />
             <option value="$PROJECT_DIR$/Problems/The number of inversions" />
             <option value="$PROJECT_DIR$/Problems/Time" />
+            <option value="$PROJECT_DIR$/Problems/War and Peace" />
             <option value="$PROJECT_DIR$/Sorting Tool/task" />
             <option value="$PROJECT_DIR$/util" />
           </set>
