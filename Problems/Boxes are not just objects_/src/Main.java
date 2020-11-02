@@ -12,6 +12,8 @@ Casting is not desirable and can fall at runtime, could you create more... gener
 */
 class Box<T>{
 
+
+
     private T item;
 
     public void put(T item) {
@@ -23,3 +25,5 @@ class Box<T>{
     }
 
 }
+
+
