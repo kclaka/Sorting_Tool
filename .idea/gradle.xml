@@ -24,9 +24,11 @@
             <option value="$PROJECT_DIR$/Problems/Blacklist" />
             <option value="$PROJECT_DIR$/Problems/Boxes are not just objects_" />
             <option value="$PROJECT_DIR$/Problems/Calculator with four methods" />
+            <option value="$PROJECT_DIR$/Problems/Catching some exceptions" />
             <option value="$PROJECT_DIR$/Problems/Celsius to Fahrenheit" />
             <option value="$PROJECT_DIR$/Problems/Classes for Hospital" />
             <option value="$PROJECT_DIR$/Problems/Complex" />
+            <option value="$PROJECT_DIR$/Problems/Converting and multiplying" />
             <option value="$PROJECT_DIR$/Problems/Correct the usage of non-generic class" />
             <option value="$PROJECT_DIR$/Problems/Count the number of merge operations" />
             <option value="$PROJECT_DIR$/Problems/Creating a map" />
@@ -61,6 +63,7 @@
             <option value="$PROJECT_DIR$/Problems/Sorting arrays" />
             <option value="$PROJECT_DIR$/Problems/Spell checker" />
             <option value="$PROJECT_DIR$/Problems/Squares list" />
+            <option value="$PROJECT_DIR$/Problems/String to double conversion" />
             <option value="$PROJECT_DIR$/Problems/The lucky ticket" />
             <option value="$PROJECT_DIR$/Problems/The number of inversions" />
             <option value="$PROJECT_DIR$/Problems/Time" />
