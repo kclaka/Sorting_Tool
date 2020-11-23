@@ -13,7 +13,11 @@ public class Main {
         List<Long> intarr = new ArrayList<>();
         List<String> stringarr = new ArrayList<>();
 
-        if (arg.contains("long") && arg.contains("byCount")) {
+        if ((arg.contains("sortingType"))  && !((arg.contains("byCount"))  || arg.contains("natural"))){
+            System.out.println("No sorting type defined!");
+        }else if(( arg.contains("dataType"))  &&   !((arg.contains("long")) || arg.contains("word"))) {
+            System.out.println("No data type defined!");
+        }else if (arg.contains("long") && arg.contains("byCount")) {
             while (scanner.hasNextInt()) {
                 Long num = scanner.nextLong();
                 intarr.add(num);
