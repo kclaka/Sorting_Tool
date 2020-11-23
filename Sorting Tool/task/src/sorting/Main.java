@@ -1,68 +1,46 @@
 package sorting;
 
-import com.sun.source.tree.Tree;
-
 import java.util.*;
 
 public class Main {
     public static void main(final String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
 
         List<String> arg = Arrays.asList(args);
-        //System.out.println(arg);
+
 
         List<Long> intarr = new ArrayList<>();
+        List<String> stringarr = new ArrayList<>();
 
-        if (arg.contains("-sortingType")  || args[2].equals("-byCount")) {
+        if (arg.contains("long") && arg.contains("byCount")) {
             while (scanner.hasNextInt()) {
                 Long num = scanner.nextLong();
                 intarr.add(num);
             }
             byCount(intarr);
 
+        } else if (arg.contains("long") || arg.contains("natural")) {
+            while (scanner.hasNextInt()) {
+                Long num = scanner.nextLong();
+                intarr.add(num);
+            }
+            naturalSort(intarr);
+        } else if (arg.contains("word") && arg.contains("byCount")) {
+            while (scanner.hasNext()) {
+                String word = scanner.next();
+                stringarr.add(word);
+            }
+
+            byCount(stringarr);
+        } else if (arg.contains("line")) {
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                stringarr.add(line);
+            }
+
+            parseLine(stringarr);
         }
-//            naturalSort(intarr);
-//
-//        }
-
-
-//        } else if (args[1].equals("long")) {
-//                ArrayList<Long> arr = new ArrayList<>();
-//                while (scanner.hasNextLong()) {
-//                    long number = scanner.nextLong();
-//                    // write your code here
-//                    arr.add(number);
-//
-//                }
-//                parseLong(arr);
-//            } else if (args[1].equals("line")) {
-//                ArrayList<String> arrLine = new ArrayList<>();
-//                while (scanner.hasNext()) {
-//                    String str = scanner.nextLine();
-//                    //int line_len = str.length() - str.replaceAll(" ", "").length();
-//                    arrLine.add(str);
-//
-//
-//                }
-//
-//                parseLine(arrLine);
-//
-//
-//            } else {
-//                ArrayList<String> arrString = new ArrayList<>();
-//
-//                while (scanner.hasNext()) {
-//                    String word = scanner.next();
-//                    // write your code here
-//                    arrString.add(word);
-//                }
-//
-//                parseWord(arrString);
-//
-//            }
-
 
 
     }
@@ -94,50 +72,67 @@ public class Main {
         System.out.println(" (" + freq + " time(s), " + (int) percent + "%).");
     }
 
-    private static void parseLine(ArrayList<String> strLine) {
+    private static void parseLine(List<String> strLine) {
         System.out.println("Total lines: " + strLine.size() + ".");
-        System.out.println("The longest line: ");
-        String max = Collections.max(strLine, Comparator.comparing(String::length));
-        System.out.print(max);
-        int freq = Collections.frequency(strLine, Collections.max(strLine));
-        double percent = (double) freq / strLine.size() * 100;
-        System.out.println("\n(" + freq + " time(s), " + (int) percent + "%).");
+        printByCountStats(strLine);
 
     }
 
-    private static void naturalSort(TreeMap<Integer, String> map){
-        
-    }
-
-
-
-    private static void byCount(List<Long> num){
-        System.out.println(String.format("Total numbers: %d.", num.size()));
-        printByCountStats(num);
+    private static <T extends Comparable<? super T>> void naturalSort(List<T> lst) {
+        if (lst.get(0) instanceof String) {
+            System.out.println(String.format("Total words: %d.", lst.size()));
+        } else {
+            System.out.println(String.format("Total numbers: %d.", lst.size()));
+        }
+        printbyNaturalSort(lst);
 
     }
 
-    private static void  printByCountStats(List<Long> nums){
-        TreeMap<Long, Integer> map = new TreeMap<>();
+    private static <T extends Comparable<? super T>> void printbyNaturalSort(List<T> lst) {
+        Collections.sort(lst);
+        System.out.print("Sorted data: ");
+        String result = "";
 
-        for(Long i : nums){
-            int count = map.getOrDefault(i, 0);
-            map.put(i, count + 1);
+        for (T k : lst) {
+            result += k + " ";
         }
 
+        System.out.print(result.strip());
 
+    }
+
+
+    private static <T> void byCount(List<T> lst) {
+        if (lst.get(0) instanceof String) {
+            System.out.println(String.format("Total words: %d.", lst.size()));
+        } else {
+            System.out.println(String.format("Total numbers: %d.", lst.size()));
+        }
+        printByCountStats(lst);
+
+
+    }
+
+
+    private static <T> void printByCountStats(List<T> nums) {
+        TreeMap<T, Integer> map = new TreeMap<>();
+
+        for (T t : nums) {
+            int count = map.getOrDefault(t, 0);
+            map.put(t, count + 1);
+        }
 
         map.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
-                .forEach(s -> System.out.printf("%d: %d time(s), %d%%\n", s.getKey(), s.getValue(), getPercentage(nums.size(), s.getValue())));
+                .forEach(s -> System.out.printf("%s: %d time(s), %d%%\n", s.getKey(), s.getValue(), getPercentage(nums.size(), s.getValue())));
 
 
     }
 
-    private static int getPercentage(double size, double count){
-        double ans = count/size * 100;
-        return (int)(Math.round(ans));
+    private static int getPercentage(double size, double count) {
+        double ans = count / size * 100;
+        return (int) (Math.round(ans));
     }
 
 
