@@ -1,9 +1,13 @@
 package sorting;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class Main {
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -17,19 +21,29 @@ public class Main {
             System.out.println("No sorting type defined!");
         }else if(( arg.contains("dataType"))  &&   !((arg.contains("long")) || arg.contains("word"))) {
             System.out.println("No data type defined!");
-        }else if (arg.contains("long") && arg.contains("byCount")) {
-            while (scanner.hasNextInt()) {
-                Long num = scanner.nextLong();
-                intarr.add(num);
+        }else if (arg.contains("long") && arg.contains("byCount")  || arg.contains("outputFile")) {
+            if(arg.contains("inputFile") && arg.contains("outputFile")){
+                filenaame(scanner, arg, intarr);
+            }else{
+                while (scanner.hasNextInt()) {
+                    Long num = scanner.nextLong();
+                    intarr.add(num);
+                }
+                byCount(intarr);
             }
-            byCount(intarr);
 
         } else if (arg.contains("long") || arg.contains("natural")) {
-            while (scanner.hasNextInt()) {
-                Long num = scanner.nextLong();
-                intarr.add(num);
+            if(arg.contains("inputFile") && arg.contains("outputFile")){
+                filenaame(scanner, arg, intarr);
+            }else{
+                while (scanner.hasNextInt()) {
+                    Long num = scanner.nextLong();
+                    intarr.add(num);
+                }
+                naturalSort(intarr);
             }
-            naturalSort(intarr);
+
+
         } else if (arg.contains("word") && arg.contains("byCount")) {
             while (scanner.hasNext()) {
                 String word = scanner.next();
@@ -48,6 +62,20 @@ public class Main {
 
 
     }
+
+    private static void filenaame(Scanner scanner, List<String> arg, List<Long> intarr) throws IOException {
+        String infilename = arg.get(arg.indexOf("inputFile") + 1);
+        String outfilename = arg.get(arg.indexOf("outputFile") + 1);
+        File file = new File(infilename);
+
+        Scanner scanFile = new Scanner(file);
+        while (scanFile.hasNext()){
+            Long num = scanner.nextLong();
+            intarr.add(num);
+        }
+        writeToFile(intarr, outfilename);
+    }
+
 
     private static void sortInteger(ArrayList<Integer> num) {
         Collections.sort(num);
@@ -101,7 +129,7 @@ public class Main {
             result += k + " ";
         }
 
-        System.out.print(result.strip());
+        System.out.println(result.strip());
 
     }
 
@@ -130,6 +158,26 @@ public class Main {
                 .stream()
                 .sorted(Map.Entry.comparingByValue())
                 .forEach(s -> System.out.printf("%s: %d time(s), %d%%\n", s.getKey(), s.getValue(), getPercentage(nums.size(), s.getValue())));
+
+
+    }
+
+    private static <T> void writeToFile(List<T> nums, String filename) throws IOException {
+        TreeMap<T, Integer> map = new TreeMap<>();
+        File file = new File(filename);
+        file.mkdirs();
+        file.createNewFile();
+        PrintWriter printWriter = new PrintWriter(file);
+
+        for (T t : nums) {
+            int count = map.getOrDefault(t, 0);
+            map.put(t, count + 1);
+        }
+
+        map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .forEach(s -> printWriter.printf("%s: %d time(s), %d%%\n", s.getKey(), s.getValue(), getPercentage(nums.size(), s.getValue())));
 
 
     }
